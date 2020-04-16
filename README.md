@@ -1,7 +1,7 @@
-odin-project
+# odin-project
 
 ### Table of Contents
-    * [javascript-exercises](#javascript-exercises)
+   * [javascript-exercises](#javascript-exercises)
 
 ## javascript-exercises
 1. Run this command to initizes nvm to use testcases
