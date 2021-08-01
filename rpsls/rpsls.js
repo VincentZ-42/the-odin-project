@@ -10,53 +10,63 @@ const computerPlay = () => {
   return VALID_CHOICES[getRandomInt(VALID_CHOICES.length)];
 }
 
+// Plays one round of RPSLS
 function playRound(playerSelection, computerSelection) {
-
-  console.log(`You picked: ${playerSelection}`);
-  console.log(`Computer picked: ${computerSelection}`);
-
   if (playerSelection === computerSelection) {
-    return "It's a tie!"
+    return "tie"
   } else if (
     (playerSelection === 'rock' && ['paper', 'spock'].includes(computerSelection)) ||
     (playerSelection === 'paper' && ['scissors', 'lizard'].includes(computerSelection)) ||
     (playerSelection === 'scissors' && ['rock', 'spock'].includes(computerSelection)) ||
     (playerSelection === 'lizard' && ['scissors', 'rock'].includes(computerSelection)) ||
     (playerSelection === 'spock' && ['lizard', 'paper'].includes(computerSelection))) {
-      return 'You lost!';
+      return 'lose';
   } else {
-    return "You've won!";
+    return "win";
   }
 }
 
-const game = () => {
-  let playerWins = 0;
-  let computerWins = 0;
-  let playerChoice = '';
-  let outcome = '';
+// sets win count for both player and computer to 0
+function resetScore() {
+  playerWins = 0;
+  computerWins = 0;
+}
 
-  while (true) {
-    playerChoice = prompt(`Pick one: ${VALID_CHOICES}`);
-    console.log(`Computer: ${computerWins}, You: ${playerWins}`);
-    outcome = playRound(playerChoice, computerPlay());
-    console.log(outcome);
-    if (outcome === 'You lost!') {
+// When user clicks on button, one Round is played
+const buttons = document.querySelectorAll('button');
+
+let playerWins = 0;
+let computerWins = 0;
+let outcome = '';
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    computerChoice = computerPlay();
+    playerChoice = button.value;
+    outcome = playRound(playerChoice, computerChoice);
+    if (outcome === 'lose') {
       computerWins += 1;
-    } else if (outcome === "You've won!") {
+    } else if (outcome === 'win') {
       playerWins += 1;
-    } else {
-      continue;
     }
-    if (playerWins === 5 || computerWins === 5) {
-      break;
+    document
+      .getElementById('messageboard')
+        .innerHTML = `
+          You choose: ${playerChoice}<br>
+          Computer choose: ${computerChoice}<br>
+          ${outcome.toUpperCase()}!`;
+    document
+      .getElementById('scoreboard')
+        .innerHTML = `
+          Your score: ${playerWins}<br>
+          Comp score: ${computerWins}`;
+    if (playerWins === 5) {
+      alert('Congrats, you won! Play again?');
+      resetScore();
     }
-  }
-
-  if (playerWins === 5) {
-    return 'Congrats, you won the match!';
-  } else {
-    return 'Nice try, but you lose the match!';
-  }
-}
-
-console.log(game());
+    if (computerWins === 5) {
+      alert('Booooo, you suck! Play Again?');
+      resetScore();
+    }
+  })
+});

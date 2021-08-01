@@ -1,0 +1,31 @@
+body {
+  background-color: darkcyan;
+}
+
+img {
+  border-radius: 50%;
+  max-width: 20%;
+  max-height: 20%;
+}
+
+body {
+  align-items: center;
+}
+
+button {
+  background-color: darkgray;
+  text-align: center;
+  font-size: large;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+}
+
+.show {
+  display: flex;
+  border: black;
+  background-color: cadetblue;
+  padding-top: 15px;
+}

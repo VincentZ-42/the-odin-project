@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <title>Hello</title>
-  <body>Does this work?</body>
+  <head>
+    <link rel='stylesheet' href='index.css'>
+  </head>
+  <title>RPSLS Game</title>
+  <body>
+    <div class='box'>
+      <div class='Instructions'>
+        <h1>Instructions</h1>
+        <h2>You are playing against a computer. First to win 5 rounds wins the game!</h2>
+        <p>
+          Scissor cuts paper, paper covers rock. rock crushes lizard,
+          lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard,
+          lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it 
+          always has, rock crushes scissors.
+        </p>
+        <div id='choices'>
+          <button value='rock'>Rock</button>
+          <button value='paper'>Paper</button>
+          <button value='scissors'>Scissors</button>
+          <button value='lizard'>Lizard</button>
+          <button value='spock'>Spock</button>
+        </div>
+      </div>
+      <img id='RPSLS' src="images/rpsls rules.png" alt="RPSLS Rules">
+    </div>
+    <div id='messageboard' class='show'>
+      <h4>Message board</h4>
+    </div>
+    <div id='scoreboard' class='show'></div>
+  </body>
   <script src='rpsls.js'></script>
 </html>
