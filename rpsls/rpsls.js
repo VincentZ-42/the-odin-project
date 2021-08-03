@@ -49,17 +49,6 @@ buttons.forEach((button) => {
     } else if (outcome === 'win') {
       playerWins += 1;
     }
-    document
-      .getElementById('messageboard')
-        .innerHTML = `
-          You choose: ${playerChoice}<br>
-          Computer choose: ${computerChoice}<br>
-          ${outcome.toUpperCase()}!`;
-    document
-      .getElementById('scoreboard')
-        .innerHTML = `
-          Your score: ${playerWins}<br>
-          Comp score: ${computerWins}`;
     if (playerWins === 5) {
       alert('Congrats, you won! Play again?');
       resetScore();
@@ -68,5 +57,16 @@ buttons.forEach((button) => {
       alert('Booooo, you suck! Play Again?');
       resetScore();
     }
+    document
+    .getElementById('messageboard')
+      .innerHTML = `
+        You choose: ${playerChoice}<br>
+        Computer choose: ${computerChoice}<br>
+        ${outcome.toUpperCase()}!`;
+    document
+      .getElementById('scoreboard')
+        .innerHTML = `
+          Your score: ${playerWins}<br>
+          Comp score: ${computerWins}`;
   })
 });
