@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors, Lizard, Spock Game (RPSLS)
 
-<img alt='rpsls picture' src=https://github.com/VincentZ-42/the-odin-project/blob/master/rpsls/images/rpsls.png>
+<img width=50% height=50% alt='rpsls picture' src=https://github.com/VincentZ-42/the-odin-project/blob/master/rpsls/images/rpsls.png>
 
 ## Objective
 
